@@ -64,8 +64,7 @@ import requests as r
 content=r.get(url).content
 with open(f"ai_image_{slide_no}.jpeg",'wb') as f:
   f.write(content)
-
-return url
+  return url
 
 def run_agent(leader_agent, query):
   prompt = f"""Based on Below given Query, your task is to call specific tool,
