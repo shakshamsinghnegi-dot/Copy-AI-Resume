@@ -88,8 +88,8 @@ def run_agent(leader_agent, query):
 if all(API_KEY): 
     leader_agent = create_agent(
         model= model,
-        tools = [search_latest_info,#generate image]
-    )
+        tools = [search_latest_info,#generate image
+                ])
     #leader_agent
 else:
   st.info("Give API KEY to load agent")
