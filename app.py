@@ -34,12 +34,8 @@ if not all(ALL_API):
   st.markdown(f"Get Tavily API key-{url}")
 elif all(ALL_API):
   st.sidebar.success("API_KEY loaded")
-  #MODEL LOAD 
-  model = ChatGoogleGenerativeAI(
-    google_api_key = GOOGLE_API_KEY,
-    model = st.sidebar.selectbox("Gemini-Model-Name",
-                                 options = ["gemini-2.5-flash","gemini-2.5-flash-lite",
-                                            "gemini-3.5-flash","gemini-3.5-flash-lite"])
+  options = ["gemini-2.5-flash","gemini-2.5-flash-lite",
+             "gemini-3.5-flash","gemini-3.5-flash-lite"])
   selected_model=st.selectbox("Select-Model",options=options)
   )
   model=ChatGoogleGenerativeAI(
@@ -51,16 +47,16 @@ else:
 #========================STEP 3 BACKEND================================
 #Search_Latest_using_tavily
 def serch_latest_info(query):
-   """This function helps to fetch latest news or jobs rerlated article
-  using tavily """
+   """This function helps to give 
+   latest search using tavily
+   based on given user query realted reserach or contents"""
 
-  client = TavilyClient(
-      api_key = TAVILY_API )
+  client = TavilyClient(api_key = TAVILY_API )
   response = client.search(query)
   return response
 
 def generate_image(img_prompt,slide_no = 1):
-  """this function helps user generate
+  """This function helps user generate
   image using free api key with given
   image_prompt"""
   url = f"https://image.pollinations.ai/{img_prompt}"
@@ -78,7 +74,7 @@ def run_agent(leader_agent, query):
   function to generate image based on given topic, Generate image using
   with no of slide asked and embed that in same html ppt and using file handling embed this in
   output html, use java script function to generate image using async
-  func and threading and give output in HTML user query given below:"""
+  func and threading and give output in HTML ,no markdown user query given below:"""
   prompt = prompt+ query
   response = leader_agent.invoke({'messages': [{'role': 'user', 'content': prompt}]})
   code = response['messages'] [-1].content[-1]['text']
