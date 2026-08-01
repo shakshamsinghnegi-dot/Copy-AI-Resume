@@ -64,6 +64,7 @@ import requests as r
 content=r.get(url).content
 with open(f"ai_image_{slide_no}.jpeg",'wb') as f:
   f.write(content)
+
 return url
 
 def run_agent(leader_agent, query):
