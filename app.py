@@ -90,7 +90,7 @@ if all(API_KEY):
         model= model,
         tools = [search_latest_info,#generate image]
     )
-    leader_agent
+    #leader_agent
 else:
   st.info("Give API KEY to load agent")
 
