@@ -50,10 +50,9 @@ def serch_latest_info(query):
    """This function helps to give 
    latest search using tavily
    based on given user query realted reserach or contents"""
-
-  client = TavilyClient(api_key = TAVILY_API )
-  response = client.search(query)
-  return response
+   client = TavilyClient(api_key = TAVILY_API )
+   response = client.search(query)
+   return response
 
 def generate_image(img_prompt,slide_no = 1):
   """This function helps user generate
