@@ -11,6 +11,8 @@ from langchain.messages import SystemMessage, HumanMessage
 import numpy as np
 import streamlit as st
 
+
+st.set_page_config(layout=wide)
 #Step2:
 st.title("Agentic PPT Generator")
 st.header("User can generate,PPT,Image,and latest new")
@@ -45,7 +47,7 @@ elif all(ALL_API):
 else:
   st.sidebar.info("check api keys")
 
-#========================STEP 3================================
+#========================STEP 3 BACKEND================================
 #Search_Latest_using_tavily
 def serch_latest_info(query):
    """This function helps to fetch latest news or jobs rerlated article
@@ -101,7 +103,7 @@ tab1,tab2,tab3=st.tabs(["Generate Image",
                         "Generate PPT"])
 
 user_input=st.text_area("Write Prompt & CLick Agent")
-if (user_input)&(Leader_agent):
+if (user_input):
   with tab1:
     if st.button("Click to generate image",key="Image-button"):
       with st.spinner("Running Agent"):
